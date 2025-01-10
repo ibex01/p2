@@ -1,0 +1,29 @@
+# Given lists
+Product_IDs = ['1001', '1002', '1003', '1004', '1005', '1006']
+Prices = [250, 450, 300, 800, 150, 600]
+
+# (a) Generate a dictionary mapping Product_IDs to Prices
+ProductPriceDict = dict(zip(Product_IDs, Prices))
+print("ProductPriceDict:", ProductPriceDict)
+
+# (b) Function to find the price of the most expensive product (without built-in functions)
+def most_expensive_price(dictionary):
+    max_price = -float('inf')
+    for price in dictionary.values():
+        if price > max_price:
+            max_price = price
+    return max_price
+
+print("Most Expensive Product Price:", most_expensive_price(ProductPriceDict))
+
+# (c) Function to get price by product ID
+def get_price_by_id(product_id, dictionary):
+    if product_id in dictionary:
+        return f"Price of Product {product_id}: {dictionary[product_id]}"
+    else:
+        return "Invalid Product ID"
+
+# Test the function
+product_id_input = input("Enter a Product ID to search: ").strip()
+print(get_price_by_id(product_id_input, ProductPriceDict))
+
